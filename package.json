@@ -1,12 +1,13 @@
 {
-  "name": "@bitnoi.se/react-scheduler",
+  "name": "@coderkaine.com/react-scheduler",
   "version": "0.1.5",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bitnoise/react-scheduler"
+    "url": "https://github.com/CoderKaine/react-scheduler"
   },
+  "description": "This is a fork of https://github.com/Bitnoise/react-scheduler",
   "keywords": [
     "scheduler",
     "gantt",
@@ -16,8 +17,8 @@
     "calendar"
   ],
   "author": {
-    "name": "Bitnoise",
-    "url": "https://scheduler.bitnoise.pl/"
+    "name": "Coderkaine",
+    "url": "https://www.coderkaine.com"
   },
   "scripts": {
     "dev": "vite",
