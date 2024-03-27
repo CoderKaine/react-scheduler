@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Icon } from "@/components";
 import {
   StyledImage,
@@ -8,9 +8,11 @@ import {
   StyledTextWrapper,
   StyledWrapper
 } from "./styles";
-import { LeftColumnItemProps } from "./types";
+import type { LeftColumnItemProps } from "./types";
 
 const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }) => {
+  const [isIconBroken, setIsIconBroken] = useState(false);
+
   return (
     <StyledWrapper
       title={item.title + " | " + item.subtitle}
@@ -19,8 +21,8 @@ const LeftColumnItem: FC<LeftColumnItemProps> = ({ id, item, rows, onItemClick }
       onClick={() => onItemClick?.({ id, label: item })}>
       <StyledInnerWrapper>
         <StyledImageWrapper>
-          {item.icon ? (
-            <StyledImage src={item.icon} alt="Icon"></StyledImage>
+          {item.icon && !isIconBroken ? (
+            <StyledImage src={item.icon} alt="Icon" onError={() => setIsIconBroken(true)} />
           ) : (
             <Icon iconName="defaultAvatar" />
           )}
