@@ -110,15 +110,16 @@ const mockedSchedulerData: SchedulerData = [
 
 ### Scheduler Component Props
 
-| Property Name     | Type       | Arguments                         | Description                                                                                                                       |
-|-------------------|------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| isLoading         | `boolean`  | -                                 | shows loading indicators on scheduler                                                                                             |
-| onRangeChange     | `function` | updated `startDate` and `endDate` | runs whenever user reaches end of currently rendered canvas                                                                       |
-| onTileClick       | `function` | clicked resource data             | detects resource click                                                                                                            |
-| onItemClick       | `function` | clicked left column item data     | detects item click on left column                                                                                                 |
-| onFilterData      | `function` | -                                 | callback firing when filter button was clicked                                                                                    |
-| onClearFilterData | `function` | -                                 | callback firing when clear filters button was clicked (clearing button is visible **only** when filterButtonState is set to `>0`) |
-| config            | `Config`   | -                                 | object with scheduler config properties                                                                                           |
+| Property Name     | Type       | Arguments                           | Description                                                                                                                       |
+|-------------------|------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| isLoading         | `boolean`  | -                                   | shows loading indicators on scheduler                                                                                             |
+| onRangeChange     | `function` | updated `startDate` and `endDate`   | runs whenever user reaches end of currently rendered canvas                                                                       |
+| onTileClick       | `function` | clicked resource data               | detects resource click                                                                                                            |
+| onItemClick       | `function` | clicked left column item data       | detects item click on left column                                                                                                 |
+| onEmptyCellClick  | `function` | cell `date` and resource data `id`  | allow click action on a cell that has no data                                                                                     |
+| onFilterData      | `function` | -                                   | callback firing when filter button was clicked                                                                                    |
+| onClearFilterData | `function` | -                                   | callback firing when clear filters button was clicked (clearing button is visible **only** when filterButtonState is set to `>0`) |
+| config            | `Config`   | -                                   | object with scheduler config properties                                                                                           |
 
 ### Scheduler Config Object
 

@@ -1,6 +1,6 @@
-import { TooltipData } from "@/types/global";
+import { CellData } from "@/types/global";
 
 export type TooltipProps = {
-  tooltipData: TooltipData;
+  tooltipData: CellData;
   zoom: number;
 };

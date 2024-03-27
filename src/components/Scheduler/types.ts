@@ -1,10 +1,10 @@
-import {
+import type {
   Config,
   SchedulerData,
   SchedulerItemClickData,
   SchedulerProjectData
 } from "@/types/global";
-import { ParsedDatesRange } from "@/utils/getDatesRange";
+import type { ParsedDatesRange } from "@/utils/getDatesRange";
 
 export type SchedulerProps = {
   data: SchedulerData;
@@ -16,6 +16,7 @@ export type SchedulerProps = {
   onFilterData?: () => void;
   onClearFilterData?: () => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  onEmptyCellClick?: (date: Date, id: string) => void;
 };
 
 export type StyledOutsideWrapperProps = {

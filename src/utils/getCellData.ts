@@ -1,16 +1,24 @@
 import dayjs from "dayjs";
 import { weekWidth, boxHeight, dayWidth } from "@/constants";
-import { Day, Coords, SchedulerProjectData, TooltipData, ZoomLevel } from "@/types/global";
+import {
+  Day,
+  Coords,
+  SchedulerProjectData,
+  CellData,
+  ZoomLevel,
+  PaginatedSchedulerData
+} from "@/types/global";
 import { getOccupancy } from "./getOccupancy";
 
-export const getTooltipData = (
+export const getCellData = (
   startDate: Day,
   cursorPosition: Coords,
   rowsPerPerson: number[],
   resourcesData: SchedulerProjectData[][][],
   zoom: ZoomLevel,
-  includeTakenHoursOnWeekendsInDayView = false
-): TooltipData => {
+  includeTakenHoursOnWeekendsInDayView = false,
+  page: PaginatedSchedulerData
+): CellData => {
   const currBoxWidth = zoom === 0 ? weekWidth : dayWidth;
   const column = Math.ceil(cursorPosition.x / currBoxWidth);
   const focusedDate = dayjs(`${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}`).add(
@@ -33,5 +41,10 @@ export const getTooltipData = (
     zoom,
     includeTakenHoursOnWeekendsInDayView
   );
-  return { coords: { x: xPos, y: yPos }, resourceIndex, disposition };
+  return {
+    coords: { x: xPos, y: yPos },
+    resourceIndex,
+    disposition,
+    resource: page?.[resourceIndex]
+  };
 };
