@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/CoderKaine/react-scheduler"
   },
-  "description": "This is a fork of https://github.com/Bitnoise/react-scheduler",
+  "description": "Open sourced, typescript oriented, light-weight, and ultra fast React Component for creating gantt charts",
   "keywords": [
     "scheduler",
     "gantt",
