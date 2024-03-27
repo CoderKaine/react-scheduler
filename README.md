@@ -1,7 +1,7 @@
 <div align="center">
   <img src="logo.svg" style="height: 60px" alt="@coderkaine/react-scheduler">
   <p align="center">
-    Open sourced, typescript oriented, light-weight, and ultra fast React Component for creating gantt charts.
+    Open source, typescript oriented, light-weight, and ultra fast React Component for creating gantt charts.
   </p>
 </div>
 <hr />

@@ -1,13 +1,13 @@
 {
   "name": "@coderkaine/react-scheduler",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/CoderKaine/react-scheduler"
   },
-  "description": "Open sourced, typescript oriented, light-weight, and ultra fast React Component for creating gantt charts",
+  "description": "Open source, typescript oriented, light-weight, and ultra fast React Component for creating gantt charts",
   "keywords": [
     "scheduler",
     "gantt",
