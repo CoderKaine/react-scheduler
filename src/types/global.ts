@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import dayjs from "dayjs";
 
 export const allZoomLevel = [0, 1] as const;
 
@@ -162,10 +163,13 @@ export type OccupancyData = {
   taken: TimeUnits;
   free: TimeUnits;
   overtime: TimeUnits;
+  focusedDate?: dayjs.Dayjs;
+  occupancy?: SchedulerProjectData[];
 };
 
 export type TooltipData = {
   coords: Coords;
   resourceIndex: number;
   disposition: OccupancyData;
+  resource?: PaginatedSchedulerRow;
 };

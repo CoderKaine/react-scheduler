@@ -27,6 +27,8 @@ export const getDayOccupancy = (
   return {
     taken: { hours: Math.max(0, totalHours), minutes: Math.max(0, totalMinutes) },
     free,
-    overtime
+    overtime,
+    focusedDate,
+    occupancy
   };
 };
