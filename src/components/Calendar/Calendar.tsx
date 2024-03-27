@@ -6,10 +6,10 @@ import type {
   PaginatedSchedulerData,
   SchedulerData,
   SchedulerProjectData,
-  TooltipData,
+  CellData,
   ZoomLevel
 } from "@/types/global";
-import { getTooltipData } from "@/utils/getTooltipData";
+import { getCellData } from "@/utils/getCellData";
 import { getDatesRange } from "@/utils/getDatesRange";
 import { usePagination } from "@/hooks/usePagination";
 import EmptyCellClick from "../EmptyCellClick";
@@ -18,7 +18,7 @@ import { Grid, Header, LeftColumn, Tooltip } from "..";
 import type { CalendarProps } from "./types";
 import { StyledOuterWrapper, StyledInnerWrapper } from "./styles";
 
-const initialTooltipData: TooltipData = {
+const initialCellData: CellData = {
   coords: { x: 0, y: 0 },
   resourceIndex: 0,
   disposition: {
@@ -35,7 +35,7 @@ export const Calendar: FC<CalendarProps> = ({
   topBarWidth,
   onEmptyCellClick
 }) => {
-  const [tooltipData, setTooltipData] = useState<TooltipData>(initialTooltipData);
+  const [cellData, setCellData] = useState<CellData>(initialCellData);
   const [filteredData, setFilteredData] = useState(data);
   const [isVisible, setIsVisible] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -70,22 +70,22 @@ export const Calendar: FC<CalendarProps> = ({
       ) => {
         if (!gridRef.current) return;
         const { left, top } = gridRef.current.getBoundingClientRect();
-        const tooltipCoords = { x: e.clientX - left, y: e.clientY - top };
+        const cursorPosition = { x: e.clientX - left, y: e.clientY - top };
         const {
           coords: { x, y },
           resourceIndex,
           disposition,
           resource
-        } = getTooltipData(
+        } = getCellData(
           startDate,
-          tooltipCoords,
+          cursorPosition,
           rowsPerItem,
           projectsPerPerson,
           zoom,
           includeTakenHoursOnWeekendsInDayView,
           page
         );
-        setTooltipData({ coords: { x, y }, resourceIndex, disposition, resource });
+        setCellData({ coords: { x, y }, resourceIndex, disposition, resource });
         setIsVisible(true);
       },
       300
@@ -112,7 +112,7 @@ export const Calendar: FC<CalendarProps> = ({
   const handleMouseLeave = useCallback(() => {
     debouncedHandleMouseOver.current.cancel();
     setIsVisible(false);
-    setTooltipData(initialTooltipData);
+    setCellData(initialCellData);
   }, []);
 
   useEffect(() => {
@@ -172,14 +172,10 @@ export const Calendar: FC<CalendarProps> = ({
           <EmptyBox />
         )}
         {onEmptyCellClick && (
-          <EmptyCellClick
-            onEmptyCellClick={onEmptyCellClick}
-            tooltipData={tooltipData}
-            zoom={zoom}
-          />
+          <EmptyCellClick onEmptyCellClick={onEmptyCellClick} cellData={cellData} zoom={zoom} />
         )}
-        {isVisible && tooltipData?.resourceIndex > -1 && (
-          <Tooltip tooltipData={tooltipData} zoom={zoom} />
+        {isVisible && cellData?.resourceIndex > -1 && (
+          <Tooltip tooltipData={cellData} zoom={zoom} />
         )}
       </StyledInnerWrapper>
     </StyledOuterWrapper>

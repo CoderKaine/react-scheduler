@@ -4,13 +4,13 @@ import {
   Day,
   Coords,
   SchedulerProjectData,
-  TooltipData,
+  CellData,
   ZoomLevel,
   PaginatedSchedulerData
 } from "@/types/global";
 import { getOccupancy } from "./getOccupancy";
 
-export const getTooltipData = (
+export const getCellData = (
   startDate: Day,
   cursorPosition: Coords,
   rowsPerPerson: number[],
@@ -18,7 +18,7 @@ export const getTooltipData = (
   zoom: ZoomLevel,
   includeTakenHoursOnWeekendsInDayView = false,
   page: PaginatedSchedulerData
-): TooltipData => {
+): CellData => {
   const currBoxWidth = zoom === 0 ? weekWidth : dayWidth;
   const column = Math.ceil(cursorPosition.x / currBoxWidth);
   const focusedDate = dayjs(`${startDate.year}-${startDate.month + 1}-${startDate.dayOfMonth}`).add(

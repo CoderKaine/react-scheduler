@@ -4,15 +4,11 @@ import Icon from "../Icon";
 import { StyledEmptyCellClickContent, StyledEmptyCellClickWrapper } from "./styles";
 import type { EmptyCellClickProps } from "./types";
 
-export default function EmptyCellClick({
-  onEmptyCellClick,
-  tooltipData,
-  zoom
-}: EmptyCellClickProps) {
-  const { coords, disposition, resource } = tooltipData;
+export default function EmptyCellClick({ onEmptyCellClick, cellData, zoom }: EmptyCellClickProps) {
+  const { coords, disposition, resource } = cellData;
   const wrapperRef = useRef<HTMLDivElement>(null);
   const resourceRef = useRef(resource);
-  const focusedDateRef = useRef(tooltipData?.disposition?.focusedDate);
+  const focusedDateRef = useRef(cellData?.disposition?.focusedDate);
   const width = zoom === 0 ? weekWidth : dayWidth;
 
   useLayoutEffect(() => {
@@ -25,12 +21,12 @@ export default function EmptyCellClick({
       const xOffset = cellWidth / 2 + width / 2;
       wrapperRef.current.style.left = `${coords.x - xOffset}px`;
       wrapperRef.current.style.top = `${coords.y + 80}px`;
-      focusedDateRef.current = tooltipData?.disposition?.focusedDate;
+      focusedDateRef.current = cellData?.disposition?.focusedDate;
       resourceRef.current = resource;
     }
 
     // disposition.overtime affects cell's width, thus it's needed to recalculate it's coords whenever overtime changes
-  }, [coords.x, width, disposition.overtime, coords.y, tooltipData.disposition, resource]);
+  }, [coords.x, width, disposition.overtime, coords.y, cellData.disposition, resource]);
 
   useEffect(() => {
     if (!wrapperRef.current) return;
@@ -45,7 +41,7 @@ export default function EmptyCellClick({
     }
   }
 
-  if (tooltipData.disposition?.occupancy?.length) {
+  if (cellData.disposition?.occupancy?.length) {
     return null;
   }
 

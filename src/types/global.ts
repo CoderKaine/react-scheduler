@@ -167,7 +167,7 @@ export type OccupancyData = {
   occupancy?: SchedulerProjectData[];
 };
 
-export type TooltipData = {
+export type CellData = {
   coords: Coords;
   resourceIndex: number;
   disposition: OccupancyData;

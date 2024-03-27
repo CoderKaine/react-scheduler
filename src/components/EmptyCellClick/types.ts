@@ -1,7 +1,7 @@
-import type { TooltipData } from "@/types/global";
+import type { CellData } from "@/types/global";
 
 export type EmptyCellClickProps = {
   onEmptyCellClick: (date: Date, id: string) => void;
-  tooltipData: TooltipData;
+  cellData: CellData;
   zoom: number;
 };
