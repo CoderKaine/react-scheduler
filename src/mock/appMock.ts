@@ -36,7 +36,7 @@ export const generateProjects = (
     .add(Math.floor(years / 2), "years")
     .get("year");
 
-  const data = [];
+  const data: SchedulerProjectData[] = [];
   const bgColor = `rgb(${Math.ceil(Math.random() * 255)},${Math.ceil(
     Math.random() * 200
   )},${Math.ceil(Math.random() * 200)})`;

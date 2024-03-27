@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export const allZoomLevel = [0, 1] as const;
 
 export type FilterButtonState = -1 | 0 | 1;
@@ -86,6 +88,10 @@ export type SchedulerProjectData = {
    * Background color of the tile, given in rgb color model. If not given, default color (rgb(114, 141,226 )) is set. Optional
    */
   bgColor?: string;
+  /**
+   * Content of the tile. If not given, default render title, subtitle and description. Optional
+   */
+  content?: ReactNode;
 };
 
 export type Day = {
