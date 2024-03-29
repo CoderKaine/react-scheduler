@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7
+
+- [Header] make the number bigger and the text smaller for header bottom ([#13](https://github.com/CoderKaine/react-scheduler/pull/13)) [@lau-sam](https://github.com/lau-sam)
+
 ## 0.1.6
 
 - [i18n] Support French language ([#1](https://github.com/CoderKaine/react-scheduler/pull/1)) [@lau-sam](https://github.com/lau-sam)

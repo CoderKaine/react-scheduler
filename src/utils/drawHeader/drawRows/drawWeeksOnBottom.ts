@@ -42,13 +42,13 @@ export const drawWeeksOnBottom = (
       topText: {
         y: dayNameYPos,
         label: week.isoWeek().toString(),
-        font: fonts.bottomRow.name,
+        font: fonts.bottomRow.number,
         color: getTextStyle({ isCurrent: isCurrWeek })
       },
       bottomText: {
         y: dayNumYPos,
         label: weekLabel.toUpperCase(),
-        font: fonts.middleRow,
+        font: fonts.bottomRow.name,
         color: theme.colors.grey600
       }
     });

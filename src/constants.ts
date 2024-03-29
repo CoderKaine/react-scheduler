@@ -16,8 +16,8 @@ export const fonts = {
   topRow: "600 14px Inter",
   middleRow: "400 10px Inter",
   bottomRow: {
-    name: "600 14px Inter",
-    number: "600 10px Inter"
+    name: "500 8px Inter",
+    number: "600 16px Inter"
   }
 };
 export const screenWidthMultiplier = 3;
